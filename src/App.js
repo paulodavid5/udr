@@ -9,7 +9,7 @@ function App() {
       <section className="landing">
         <Header />
         <div id="background-video">
-          <video loop autoPlay muted>
+          <video loop autoPlay muted playsInline>
             <source src={video} type="video/mp4" />
           </video>
         </div>
