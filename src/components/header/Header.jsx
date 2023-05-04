@@ -1,4 +1,4 @@
-import logo from "../../assets/svg/UDRlogosvg.svg";
+import raianos from "../../assets/img/UDRlogo.png";
 import "./header.css";
 
 function header() {
@@ -13,7 +13,7 @@ function header() {
             <a href="#">Plantel</a>
           </li>
           <li className="nav-item">
-            <img src={logo} alt="logo" />
+            <img src={raianos} alt="logo" />
           </li>
           <li className="nav-item link">
             <a href="#">História</a>
