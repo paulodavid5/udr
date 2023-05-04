@@ -49,13 +49,13 @@ li {
     top: 0;
     z-index: 99;
     background: var(--bg2);
-    height: 120px;
+    height: 60px;
     width: 100%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   }
 
   .nav-links {
-    height: 120px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -72,7 +72,7 @@ li {
   }
 
   .nav-item img {
-    width: 90px;
+    width: 40px;
   }
 
   .nav-item a {
