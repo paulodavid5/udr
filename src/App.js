@@ -1,24 +1,24 @@
 import Header from "./components/header/Header";
 import video from "./assets/videos/videoRaianos.mp4";
-// import jogador from "./assets/img/Intersect.png";
 import NextGame from "./components/nextgame/NextGame";
+import PrevGame from "./components/prevgame/PrevGame";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <section className="landing">
-        <Header />
         <div id="background-video">
           <video loop autoPlay muted playsInline>
             <source src={video} type="video/mp4" />
           </video>
         </div>
-        {/* <div id="background-image">
-        <img src={jogador} alt="img" />
-      </div> */}
-        <NextGame />
+        <div className="Home">
+          <PrevGame />
+          <NextGame />
+        </div>
       </section>
-      <section className="second"></section>
+      <section className="About"></section>
     </div>
   );
 }

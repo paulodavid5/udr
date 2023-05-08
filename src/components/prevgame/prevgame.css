@@ -1,0 +1,68 @@
+@media screen and (max-width: 560px) {
+  .prev-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 2rem;
+    position: relative;
+  }
+
+  .container-prev {
+    position: absolute;
+    top: 10dvh;
+    width: 60%;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+
+    background: var(--bg-transparent);
+    padding: 1rem;
+    border-radius: 15px;
+  }
+
+  .container-prev div {
+    flex: 1;
+  }
+
+  .container-prev .details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .container-prev .details h2 {
+    font-size: 24px;
+  }
+  .container-prev .details h3 {
+    font-size: 14px;
+  }
+
+  .container-prev img {
+    width: 50%;
+  }
+
+  .container-prev .teams {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .container-prev .home h2 {
+    font-size: 1rem;
+  }
+
+  .container-prev .away h2 {
+    font-size: 1rem;
+  }
+
+  .container-prev .place {
+    margin-bottom: 1rem;
+  }
+}

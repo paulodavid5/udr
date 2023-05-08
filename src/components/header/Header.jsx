@@ -12,7 +12,7 @@ function header() {
           <li className="nav-item link">
             <a href="#">Plantel</a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item logo">
             <img src={raianos} alt="logo" />
           </li>
           <li className="nav-item link">

@@ -1,5 +1,6 @@
 @import url("./components/header/header.css");
 @import url("./components/nextgame/nextgame.css");
+@import url("./components/prevgame/prevgame.css");
 
 :root {
   --bg1: hsla(0, 0%, 13%, 1);
@@ -147,9 +148,14 @@ h1 {
     transform: scaleX(-1);
   }
 
-  .second {
+  .About {
     background: var(--bg1);
     border-top: 2px solid var(--bg2);
     height: 100vh;
   }
+  /* 
+  .Home {
+    display: flex;
+    justify-content: space-between;
+  } */
 }
