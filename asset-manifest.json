@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/udr/static/css/main.857337af.css",
-    "main.js": "/udr/static/js/main.e261484f.js",
+    "main.css": "/udr/static/css/main.dd5b9627.css",
+    "main.js": "/udr/static/js/main.012db562.js",
     "static/media/videoRaianos.mp4": "/udr/static/media/videoRaianos.2b53c0373f4e0dabf609.mp4",
     "static/media/UDRlogo.png": "/udr/static/media/UDRlogo.c4cfcc98f4cf501d8b47.png",
     "static/media/anais.png": "/udr/static/media/anais.5afdfc15db22596a87e5.png",
     "index.html": "/udr/index.html",
-    "main.857337af.css.map": "/udr/static/css/main.857337af.css.map",
-    "main.e261484f.js.map": "/udr/static/js/main.e261484f.js.map"
+    "main.dd5b9627.css.map": "/udr/static/css/main.dd5b9627.css.map",
+    "main.012db562.js.map": "/udr/static/js/main.012db562.js.map"
   },
   "entrypoints": [
-    "static/css/main.857337af.css",
-    "static/js/main.e261484f.js"
+    "static/css/main.dd5b9627.css",
+    "static/js/main.012db562.js"
   ]
 }
