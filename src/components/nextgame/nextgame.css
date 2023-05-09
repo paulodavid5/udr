@@ -68,6 +68,7 @@
 
   .next-game_details .details_title {
     display: flex;
+    margin-bottom: 0.5rem;
   }
 
   .next-game_details .details_title h3 {
