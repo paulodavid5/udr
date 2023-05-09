@@ -11,7 +11,7 @@
     position: absolute;
     top: 10dvh;
     width: 60%;
-    height: 108px;
+    height: 78px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +20,7 @@
     text-align: center;
 
     background: var(--bg-transparent);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 15px;
   }
 
@@ -34,7 +34,7 @@
     align-items: center;
 
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
 
   .container-prev .details h2 {
@@ -52,6 +52,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 0;
   }
 
   .container-prev .home h2 {

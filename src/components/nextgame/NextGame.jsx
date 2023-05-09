@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import raianos from "../../assets/img/UDRlogo.png";
 import anais from "../../assets/img/anais.png";
 
+import { client } from "../../client";
+
 function NextGame() {
+  const getNextGame = useCallback(async () => {
+    try {
+      const response = await client.getEntries({ content_type: "raianos" });
+      const responseData = response.items;
+      console.log(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    getNextGame();
+  }, [getNextGame]);
+
   return (
     <div className="next-game">
       <div className="container-next">

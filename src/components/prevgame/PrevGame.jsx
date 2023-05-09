@@ -13,7 +13,7 @@ function PrevGame() {
           </div>
           <div className="details">
             <h2>0</h2>
-            <h3>VS</h3>
+            <h3>-</h3>
             <h2>5</h2>
           </div>
           <div className="away">
