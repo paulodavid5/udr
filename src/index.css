@@ -102,6 +102,12 @@ h1 {
   height: 100vh;
 }
 
+@media screen and (min-width: 561px) {
+  .App {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 560px) {
   .landing {
     height: 100vh;
