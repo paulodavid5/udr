@@ -1,6 +1,7 @@
 @import url("./components/header/header.css");
 @import url("./components/nextgame/nextgame.css");
 @import url("./components/prevgame/prevgame.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 :root {
   --bg1: hsla(0, 0%, 13%, 1);
@@ -10,6 +11,12 @@
   --color1: hsla(0, 0%, 94%, 1);
   --color2: hsla(60, 4%, 18%, 1);
   --colorRaianos: hsla(48, 88%, 51%, 1);
+
+  --ff: "Poppins", sans-serif;
+
+  --fw200: 200;
+  --fw400: 400;
+  --fw600: 600;
 }
 
 * {
@@ -43,7 +50,7 @@
 }
 
 body {
-  font-family: "Fira Sans", sans-serif;
+  font-family: var(--ff);
   background: hsla(0, 0%, 13%, 1);
   color: var(--color1);
 }

@@ -11,7 +11,7 @@
     position: absolute;
     top: 10dvh;
     width: 60%;
-    height: 78px;
+    height: 74px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,8 +20,8 @@
     text-align: center;
 
     background: var(--bg-transparent);
-    padding: 0.5rem;
-    border-radius: 15px;
+    padding: 1rem;
+    border-radius: 10px;
   }
 
   .container-prev div {
@@ -38,10 +38,10 @@
   }
 
   .container-prev .details h2 {
-    font-size: 24px;
+    font-size: 18px;
   }
   .container-prev .details h3 {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .container-prev img {
@@ -56,11 +56,11 @@
   }
 
   .container-prev .home h2 {
-    font-size: 1rem;
+    font-size: 14px;
   }
 
   .container-prev .away h2 {
-    font-size: 1rem;
+    font-size: 14px;
   }
 
   .container-prev .place {

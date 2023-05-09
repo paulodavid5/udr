@@ -41,16 +41,16 @@
     margin: 1rem 2rem;
     position: relative;
   }
-  .container-next {
+  .container-next-game {
     position: absolute;
     bottom: 14dvh;
     width: 100%;
-    height: 108px;
+    height: fit-content;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     text-align: center;
 
     background: var(--bg-transparent);
@@ -58,54 +58,75 @@
     border-radius: 15px;
   }
 
-  .container-next div {
-    flex: 1;
-  }
-
-  .container-next .details {
+  .next-game_details {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    width: 70%;
 
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    border-right: 1px solid var(--color1);
   }
 
-  .container-next .details h2 {
+  .next-game_details .details_title {
+    display: flex;
+  }
+
+  .next-game_details .details_title h3 {
+    text-align: left;
+    color: var(--colorRaianos);
     font-size: 20px;
   }
-  .container-next .details h3 {
-    font-size: 12px;
+
+  .next-game_details .details_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
   }
 
-  .container-next img {
-    width: 50%;
+  .details_info_place h3 {
+    border-bottom: 1px solid var(--colorRaianos);
   }
 
-  .teams {
+  .details_info_time .date {
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
-  }
-
-  .home {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    gap: 0.5rem;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color1);
   }
 
-  .away {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
+  .details_info_time .date span {
+    color: var(--colorRaianos);
+    font-size: 20px;
+    font-weight: 600;
   }
 
-  .place {
-    margin-bottom: 1rem;
+  .details_info_time .stadium {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color1);
+  }
+
+  .next-game_team-name h3 {
+    font-size: 14px;
+  }
+
+  /* img */
+
+  .next-game_team {
+    width: 30%;
+  }
+
+  .next-game_team-logo {
+    width: 100%;
+  }
+
+  .next-game_team-logo img {
+    width: 100%;
   }
 }

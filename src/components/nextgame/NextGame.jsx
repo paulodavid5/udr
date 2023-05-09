@@ -1,40 +1,39 @@
-import React, { useEffect, useCallback } from "react";
-import raianos from "../../assets/img/UDRlogo.png";
+import React from "react";
 import anais from "../../assets/img/anais.png";
 
-import { client } from "../../client";
-
-function NextGame() {
-  const getNextGame = useCallback(async () => {
-    try {
-      const response = await client.getEntries({ content_type: "raianos" });
-      const responseData = response.items;
-      console.log(responseData);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-
-  useEffect(() => {
-    getNextGame();
-  }, [getNextGame]);
-
+function NextGame(props) {
+  const {
+    nextgameTeam,
+    nextgamePlace,
+    nextgameDate,
+    nextgameTime,
+    nextgameLogoUrl,
+  } = props;
   return (
     <div className="next-game">
-      <div className="container-next">
-        <div className="teams">
-          <div className="home">
-            <img src={raianos} alt="raianos" />
-            <h2>UDR</h2>
+      <div className="container-next-game">
+        <div className="next-game_details">
+          <div className="details_title">
+            <h3>Próximo Jogo</h3>
           </div>
-          <div className="details">
-            <h2>VS</h2>
-            <h2>15:00</h2>
-            <h3>Campo do Areal</h3>
+          <div className="details_info">
+            <div className="details_info_place">
+              <h3>{nextgamePlace}</h3>
+            </div>
+            <div className="details_info_time">
+              <div className="date">
+                {nextgameDate} <span>{nextgameTime}</span>
+              </div>
+              <div className="stadium">Centro de Estágios Melgaço</div>
+            </div>
           </div>
-          <div className="away">
-            <img src={anais} alt="adversario" />
-            <h2>ANAIS</h2>
+        </div>
+        <div className="next-game_team">
+          <div className="next-game_team-logo">
+            <img src={nextgameLogoUrl} alt="" />
+          </div>
+          <div className="next-game_team-name">
+            <h3>{nextgameTeam}</h3>
           </div>
         </div>
       </div>
