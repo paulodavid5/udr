@@ -87,16 +87,17 @@
 
   .details_info_place h3 {
     border-bottom: 1px solid var(--colorRaianos);
+    font-size: 14px;
   }
 
   .details_info_time .date {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
 
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: var(--color1);
   }

@@ -1,5 +1,4 @@
 import React from "react";
-import anais from "../../assets/img/anais.png";
 
 function NextGame(props) {
   const {
@@ -8,6 +7,7 @@ function NextGame(props) {
     nextgameDate,
     nextgameTime,
     nextgameLogoUrl,
+    nextgameStadiumName,
   } = props;
   return (
     <div className="next-game">
@@ -24,7 +24,7 @@ function NextGame(props) {
               <div className="date">
                 {nextgameDate} <span>{nextgameTime}</span>
               </div>
-              <div className="stadium">Centro de Estágios Melgaço</div>
+              <div className="stadium">{nextgameStadiumName}</div>
             </div>
           </div>
         </div>

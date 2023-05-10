@@ -1,6 +1,8 @@
 @import url("./components/header/header.css");
 @import url("./components/nextgame/nextgame.css");
 @import url("./components/prevgame/prevgame.css");
+@import url("./components/results/results.css");
+@import url("./components/classification/classification.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 :root {
@@ -161,11 +163,6 @@ h1 {
     transform: scaleX(-1);
   }
 
-  .About {
-    background: var(--bg1);
-    border-top: 2px solid var(--bg2);
-    height: 100vh;
-  }
   /* 
   .Home {
     display: flex;

@@ -4,6 +4,8 @@ import Header from "./components/header/Header";
 import video from "./assets/videos/videoRaianos.mp4";
 import NextGame from "./components/nextgame/NextGame";
 import PrevGame from "./components/prevgame/PrevGame";
+import Classification from "./components/classification/Classification";
+import Results from "./components/results/Results";
 
 function App() {
   const [infogames, setInfogames] = useState([]);
@@ -37,6 +39,18 @@ function App() {
       const nextgamePlace = classification.nextgame.place;
       const nextgameDate = classification.nextgame.date;
       const nextgameTime = classification.nextgame.time;
+      const nextgameStadium = classification.classification.find(
+        (item) => item.name === nextgameTeam
+      );
+      let nextgameStadiumName = null;
+      if (nextgameStadium) {
+        if (nextgamePlace === "Casa") {
+          nextgameStadiumName = "Campo do Areal";
+        } else {
+          nextgameStadiumName = nextgameStadium.stadium;
+        }
+      }
+
       const nextgameTeamLogo = teamsLogos.find(
         (item) => item.fields.title === nextgameTeam.toLowerCase()
       );
@@ -44,6 +58,48 @@ function App() {
       if (nextgameTeamLogo) {
         nextgameLogoUrl = nextgameTeamLogo.fields.file.url;
       }
+
+      // classification
+      const classificationTeams = classification.classification.map(
+        ({ name, points, position }) => ({ name, points, position })
+      );
+
+      const classificationTeamsSort = classificationTeams.sort((a, b) => {
+        if (a.points === b.points) {
+          return a.position - b.position;
+        } else {
+          return b.points - a.points;
+        }
+      });
+
+      // results of games
+
+      const resultNext = classification.results.find(
+        ({ home }) => home.score === "-"
+      );
+      const resultNextGame = resultNext ? resultNext.game : null;
+
+      const resultsGames = classification.results.map(
+        ({ game, home, away }) => {
+          const homeLogo = teamsLogos.find(
+            (item) => item.fields.title === home.name.toLowerCase()
+          );
+          const awayLogo = teamsLogos.find(
+            (item) => item.fields.title === away.name.toLowerCase()
+          );
+
+          return {
+            game,
+            resultNextGame,
+            homeName: home.name,
+            homeScore: home.score,
+            homeLogoUrl: homeLogo ? homeLogo.fields.file.url : null,
+            awayName: away.name,
+            awayScore: away.score,
+            awayLogoUrl: awayLogo ? awayLogo.fields.file.url : null,
+          };
+        }
+      );
 
       const updPrevGame = {
         prevgameHome,
@@ -57,15 +113,11 @@ function App() {
         nextgameDate,
         nextgameTime,
         nextgameLogoUrl,
+        nextgameStadiumName,
+        classificationTeamsSort,
+        resultsGames,
+        resultNextGame,
       };
-
-      // const updNextGame = {
-      // nextgameTeam,
-      // nextgamePlace,
-      // nextgameDate,
-      // nextgameTime,
-      // nextgameLogoUrl,
-      // };
 
       return updPrevGame;
     });
@@ -77,7 +129,6 @@ function App() {
     try {
       const response = await client.getEntries({ content_type: "raianos" });
       const responseData = response.items;
-      // console.log(responseData);
       if (responseData) {
         reArrangeData(responseData);
       } else {
@@ -92,7 +143,7 @@ function App() {
     getNextGame();
   }, [getNextGame]);
 
-  // console.log(prevgame);
+  // console.log(infogames);
 
   return (
     <div className="App">
@@ -132,6 +183,7 @@ function App() {
               nextgameDate,
               nextgameTime,
               nextgameLogoUrl,
+              nextgameStadiumName,
             } = item;
             return (
               <NextGame
@@ -141,12 +193,30 @@ function App() {
                 nextgameDate={nextgameDate}
                 nextgameTime={nextgameTime}
                 nextgameLogoUrl={nextgameLogoUrl}
+                nextgameStadiumName={nextgameStadiumName}
               />
             );
           })}
         </div>
       </section>
-      <section className="About"></section>
+      <section className="classification">
+        {infogames.map((item, idx) => {
+          const { classificationTeamsSort, resultsGames, resultNextGame } =
+            item;
+          return (
+            <div className="classification-bg" key={idx}>
+              <Classification
+                key={idx}
+                classificationTeamsSort={classificationTeamsSort}
+              />
+              <Results
+                resultsGames={resultsGames}
+                resultNextGame={resultNextGame}
+              />
+            </div>
+          );
+        })}
+      </section>
     </div>
   );
 }

@@ -1,0 +1,58 @@
+.classification {
+  background: var(--bg1);
+  border-top: 2px solid var(--bg2);
+  height: 100vh;
+}
+
+@media screen and (max-width: 560px) {
+  .classification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../../assets/img/Intersect.png"), var(--bg1);
+    z-index: -1;
+  }
+  .classification-bg {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+
+    background: linear-gradient(
+      109deg,
+      rgba(10, 12, 16, 0.69) 100%,
+      rgba(10, 12, 16, 0.4) 50%,
+      rgba(10, 12, 16, 0.29) 85%
+    );
+  }
+
+  .classification-container {
+    width: 80%;
+    padding: 1rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .classification-container .classification-item {
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--color1);
+    font-weight: var(--fw600);
+  }
+
+  .classification-item .raianos {
+    color: var(--colorRaianos);
+  }
+
+  .classification-item .upzone1 {
+    color: hsla(145, 63%, 42%, 1);
+  }
+  .classification-item .upzone2 {
+    color: hsla(145, 50%, 62%, 1);
+  }
+}
