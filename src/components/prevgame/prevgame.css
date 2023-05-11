@@ -55,6 +55,10 @@
     margin: 0;
   }
 
+  .container-prev .teams .raianos {
+    color: var(--colorRaianos);
+  }
+
   .container-prev .home h2 {
     font-size: 14px;
   }

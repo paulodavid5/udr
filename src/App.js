@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { client } from "./client";
+import Loader from "./components/loader/Loader";
 import Header from "./components/header/Header";
 import video from "./assets/videos/videoRaianos.mp4";
 import NextGame from "./components/nextgame/NextGame";
@@ -8,6 +9,7 @@ import Classification from "./components/classification/Classification";
 import Results from "./components/results/Results";
 
 function App() {
+  const [isPageLoading, setIsPageLoading] = useState(false);
   const [infogames, setInfogames] = useState([]);
 
   const reArrangeData = useCallback((rawData) => {
@@ -80,7 +82,7 @@ function App() {
       const resultNextGame = resultNext ? resultNext.game : null;
 
       const resultsGames = classification.results.map(
-        ({ game, home, away }) => {
+        ({ game, home, away, date }) => {
           const homeLogo = teamsLogos.find(
             (item) => item.fields.title === home.name.toLowerCase()
           );
@@ -90,6 +92,7 @@ function App() {
 
           return {
             game,
+            date,
             resultNextGame,
             homeName: home.name,
             homeScore: home.score,
@@ -126,6 +129,7 @@ function App() {
   }, []);
 
   const getNextGame = useCallback(async () => {
+    setIsPageLoading(true);
     try {
       const response = await client.getEntries({ content_type: "raianos" });
       const responseData = response.items;
@@ -134,8 +138,10 @@ function App() {
       } else {
         setInfogames([]);
       }
+      setIsPageLoading(false);
     } catch (error) {
       console.log(error);
+      setIsPageLoading(false);
     }
   }, [reArrangeData]);
 
@@ -143,80 +149,88 @@ function App() {
     getNextGame();
   }, [getNextGame]);
 
-  // console.log(infogames);
+  // if (isPageLoading) {
+  //   return <Loader />;
+  // }
 
   return (
     <div className="App">
-      <Header />
-      <section className="landing">
-        <div id="background-video">
-          <video loop autoPlay muted playsInline>
-            <source src={video} type="video/mp4" />
-          </video>
-        </div>
-        <div className="Home">
-          {infogames.map((item, idx) => {
-            const {
-              prevgameHome,
-              prevgameHomeScore,
-              prevgameAway,
-              prevgameAwayScore,
-              HomefileUrl,
-              AwayfileUrl,
-            } = item;
-            return (
-              <PrevGame
-                key={idx}
-                prevgameHome={prevgameHome}
-                prevgameHomeScore={prevgameHomeScore}
-                prevgameAway={prevgameAway}
-                prevgameAwayScore={prevgameAwayScore}
-                HomefileUrl={HomefileUrl}
-                AwayfileUrl={AwayfileUrl}
-              />
-            );
-          })}
-          {infogames.map((item, idx) => {
-            const {
-              nextgameTeam,
-              nextgamePlace,
-              nextgameDate,
-              nextgameTime,
-              nextgameLogoUrl,
-              nextgameStadiumName,
-            } = item;
-            return (
-              <NextGame
-                key={idx}
-                nextgameTeam={nextgameTeam}
-                nextgamePlace={nextgamePlace}
-                nextgameDate={nextgameDate}
-                nextgameTime={nextgameTime}
-                nextgameLogoUrl={nextgameLogoUrl}
-                nextgameStadiumName={nextgameStadiumName}
-              />
-            );
-          })}
-        </div>
-      </section>
-      <section className="classification">
-        {infogames.map((item, idx) => {
-          const { classificationTeamsSort, resultsGames, resultNextGame } =
-            item;
-          return (
-            <div className="classification-bg" key={idx}>
-              <Classification
-                key={idx}
-                classificationTeamsSort={classificationTeamsSort}
-              />
-              <Results
-                resultsGames={resultsGames}
-                resultNextGame={resultNextGame}
-              />
+      {isPageLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <Header />
+          <section className="landing">
+            <div id="background-video">
+              <video loop autoPlay muted playsInline>
+                <source src={video} type="video/mp4" />
+              </video>
             </div>
-          );
-        })}
-      </section>
+            <div className="Home">
+              {infogames.map((item, idx) => {
+                const {
+                  prevgameHome,
+                  prevgameHomeScore,
+                  prevgameAway,
+                  prevgameAwayScore,
+                  HomefileUrl,
+                  AwayfileUrl,
+                } = item;
+                return (
+                  <PrevGame
+                    key={idx}
+                    prevgameHome={prevgameHome}
+                    prevgameHomeScore={prevgameHomeScore}
+                    prevgameAway={prevgameAway}
+                    prevgameAwayScore={prevgameAwayScore}
+                    HomefileUrl={HomefileUrl}
+                    AwayfileUrl={AwayfileUrl}
+                  />
+                );
+              })}
+              {infogames.map((item, idx) => {
+                const {
+                  nextgameTeam,
+                  nextgamePlace,
+                  nextgameDate,
+                  nextgameTime,
+                  nextgameLogoUrl,
+                  nextgameStadiumName,
+                } = item;
+                return (
+                  <NextGame
+                    key={idx}
+                    nextgameTeam={nextgameTeam}
+                    nextgamePlace={nextgamePlace}
+                    nextgameDate={nextgameDate}
+                    nextgameTime={nextgameTime}
+                    nextgameLogoUrl={nextgameLogoUrl}
+                    nextgameStadiumName={nextgameStadiumName}
+                  />
+                );
+              })}
+            </div>
+          </section>
+          <section className="classification">
+            {infogames.map((item, idx) => {
+              const { classificationTeamsSort, resultsGames, resultNextGame } =
+                item;
+              return (
+                <div className="classification-bg" key={idx}>
+                  <Classification
+                    key={idx}
+                    classificationTeamsSort={classificationTeamsSort}
+                  />
+                  <Results
+                    resultsGames={resultsGames}
+                    resultNextGame={resultNextGame}
+                  />
+                </div>
+              );
+            })}
+          </section>
+        </div>
+      )}
     </div>
   );
 }

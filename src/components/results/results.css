@@ -43,6 +43,14 @@
     font-size: 12px;
   }
 
+  .container-result .calendar h3 {
+    color: var(--color1);
+  }
+  .container-result .calendar span {
+    color: var(--colorRaianos);
+    margin-right: 0.5rem;
+  }
+
   .container-result img {
     width: 50%;
   }

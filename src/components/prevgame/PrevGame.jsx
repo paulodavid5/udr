@@ -15,7 +15,9 @@ function PrevGame(props) {
         <div className="teams">
           <div className="home">
             <img src={HomefileUrl} alt="home" />
-            <h2>{prevgameHome}</h2>
+            <h2 className={prevgameHome === "Raianos" ? "raianos" : ""}>
+              {prevgameHome}
+            </h2>
           </div>
           <div className="details">
             <h2>{prevgameHomeScore}</h2>
@@ -24,7 +26,9 @@ function PrevGame(props) {
           </div>
           <div className="away">
             <img src={AwayfileUrl} alt="away" />
-            <h2>{prevgameAway}</h2>
+            <h2 className={prevgameAway === "Raianos" ? "raianos" : ""}>
+              {prevgameAway}
+            </h2>
           </div>
         </div>
       </div>
