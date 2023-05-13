@@ -3,13 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { motion as m } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 function Results({ resultsGames, resultNextGame }) {
   return (
-    <div className="results">
+    <m.div
+      className="results"
+      initial={{ opacity: 0, translateY: "50%" }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      viewport={{ once: true, amount: 0.8 }}
+    >
       <Swiper
         modules={[Navigation]}
         initialSlide={resultNextGame - 1}
@@ -64,7 +70,7 @@ function Results({ resultsGames, resultNextGame }) {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </m.div>
   );
 }
 

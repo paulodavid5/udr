@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function PrevGame(props) {
   const {
@@ -10,7 +11,12 @@ function PrevGame(props) {
     AwayfileUrl,
   } = props;
   return (
-    <div className="prev-game">
+    <motion.div
+      className="prev-game"
+      initial={{ opacity: 0, translateY: "50%" }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      viewport={{ once: true, amount: 0.8 }}
+    >
       <div className="container-prev">
         <div className="teams">
           <div className="home">
@@ -32,7 +38,7 @@ function PrevGame(props) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

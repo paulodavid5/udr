@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function NextGame(props) {
   const {
@@ -11,7 +12,12 @@ function NextGame(props) {
   } = props;
   return (
     <div className="next-game">
-      <div className="container-next-game">
+      <motion.div
+        className="container-next-game"
+        initial={{ opacity: 0, translateY: "50%" }}
+        whileInView={{ opacity: 1, translateY: 0 }}
+        viewport={{ once: true, amount: 0.8 }}
+      >
         <div className="next-game_details">
           <div className="details_title">
             <h3>Próximo Jogo</h3>
@@ -36,7 +42,7 @@ function NextGame(props) {
             <h3>{nextgameTeam}</h3>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

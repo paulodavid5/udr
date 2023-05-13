@@ -1,0 +1,139 @@
+.team {
+  /* height: 100dvh; */
+  background: var(--bg1);
+  border-top: 2px solid var(--bg2);
+
+  display: flex;
+  justify-content: center;
+
+  padding: 3rem 0;
+}
+
+@media screen and (max-width: 560px) {
+  .team_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+  .team_title {
+    font-weight: var(--fw600);
+  }
+
+  .container_player {
+    width: 60%;
+    margin-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: var(--bg-transparent);
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .player_img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--bg2);
+
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* .player_img :nth-child(2) {
+    background: var(--bg1);
+
+    top: 20px;
+    left: -35px;
+  } */
+
+  .player_img div {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 20px;
+
+    transform: rotate(-45deg);
+
+    background: var(--bg1);
+  }
+
+  .player_img img {
+    width: 100%;
+    object-fit: scale-down;
+    object-position: center;
+    position: absolute;
+    top: -2px;
+    z-index: 1;
+  }
+
+  .player_img.Dinis img {
+    top: 22px;
+  }
+
+  .player_details {
+    display: flex;
+    justify-content: space-between;
+    align-self: stretch;
+    align-items: center;
+
+    padding-top: 2rem;
+  }
+
+  .player_info h2 {
+    font-size: 18px;
+  }
+
+  .player_info h3 {
+    font-size: 15px;
+    font-weight: var(--fw400);
+  }
+
+  .player_number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--bg2);
+    border-radius: 50%;
+  }
+
+  .player_number h1 {
+    color: var(--color2);
+  }
+
+  .player_line {
+    width: 100%;
+    height: 2px;
+    background: var(--bg2);
+    margin-top: 3rem;
+  }
+
+  .container_player.even {
+    background: var(--bg2);
+  }
+
+  .container_player.even .player_img {
+    background: var(--bg1);
+  }
+  .container_player.even .player_img div {
+    background: var(--bg2);
+  }
+  .container_player.even .player_info {
+    color: var(--bg1);
+  }
+  .container_player.even .player_number {
+    background: var(--bg1);
+  }
+  .container_player.even .player_number h1 {
+    color: var(--color1);
+  }
+  .container_player.even .player_line {
+    background: var(--bg1);
+  }
+}

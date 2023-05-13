@@ -1,8 +1,14 @@
 import React from "react";
+import { motion as m } from "framer-motion";
 
 function Classification({ classificationTeamsSort }) {
   return (
-    <div className="classification-container">
+    <m.div
+      className="classification-container"
+      initial={{ opacity: 0, translateY: "50%" }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      viewport={{ once: true, amount: 0.8 }}
+    >
       {classificationTeamsSort.map((item, idx) => (
         <ul key={idx} className="classification-item">
           {item.position === 1 ? (
@@ -30,7 +36,7 @@ function Classification({ classificationTeamsSort }) {
           <li>{item.points}</li>
         </ul>
       ))}
-    </div>
+    </m.div>
   );
 }
 

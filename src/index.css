@@ -3,6 +3,7 @@
 @import url("./components/nextgame/nextgame.css");
 @import url("./components/prevgame/prevgame.css");
 @import url("./components/results/results.css");
+@import url("./components/team/team.css");
 @import url("./components/classification/classification.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
@@ -56,6 +57,7 @@ body {
   font-family: var(--ff);
   background: hsla(0, 0%, 13%, 1);
   color: var(--color1);
+  scroll-behavior: smooth;
 }
 
 .landing {

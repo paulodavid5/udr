@@ -7,6 +7,7 @@ import NextGame from "./components/nextgame/NextGame";
 import PrevGame from "./components/prevgame/PrevGame";
 import Classification from "./components/classification/Classification";
 import Results from "./components/results/Results";
+import Team from "./components/team/Team";
 
 function App() {
   const [isPageLoading, setIsPageLoading] = useState(false);
@@ -14,7 +15,7 @@ function App() {
 
   const reArrangeData = useCallback((rawData) => {
     const cleanData = rawData.map((data) => {
-      const { classification, squadfaces, teamsLogos } = data.fields;
+      const { classification, teamsLogos } = data.fields;
 
       // Previous game
       const prevgameHome = classification.prevgame.home.name;
@@ -74,6 +75,50 @@ function App() {
         }
       });
 
+      // players
+
+      const defenderPlayers = classification.squad.defender.map((player) => ({
+        name: player.name,
+        number: player.number,
+        img: player.img,
+        position: player.position,
+      }));
+
+      const forwardPlayers = classification.squad.forward.map((player) => ({
+        name: player.name,
+        number: player.number,
+        img: player.img,
+        position: player.position,
+      }));
+      const goalkeeperPlayers = classification.squad.goalkeeper.map(
+        (player) => ({
+          name: player.name,
+          number: player.number,
+          img: player.img,
+          position: player.position,
+        })
+      );
+      const midfielderPlayers = classification.squad.midfielder.map(
+        (player) => ({
+          name: player.name,
+          number: player.number,
+          img: player.img,
+          position: player.position,
+        })
+      );
+
+      const allPlayers = [
+        ...goalkeeperPlayers,
+        ...defenderPlayers,
+        ...midfielderPlayers,
+        ...forwardPlayers,
+      ];
+
+      allPlayers.sort((a, b) => {
+        const positions = ["goalkeeper", "defender", "midfielder", "forward"];
+        return positions.indexOf(a.position) - positions.indexOf(b.position);
+      });
+
       // results of games
 
       const resultNext = classification.results.find(
@@ -120,6 +165,7 @@ function App() {
         classificationTeamsSort,
         resultsGames,
         resultNextGame,
+        allPlayers,
       };
 
       return updPrevGame;
@@ -135,6 +181,7 @@ function App() {
       const responseData = response.items;
       if (responseData) {
         reArrangeData(responseData);
+        console.log(responseData);
       } else {
         setInfogames([]);
       }
@@ -149,9 +196,7 @@ function App() {
     getNextGame();
   }, [getNextGame]);
 
-  // if (isPageLoading) {
-  //   return <Loader />;
-  // }
+  console.log(infogames);
 
   return (
     <div className="App">
@@ -227,6 +272,12 @@ function App() {
                   />
                 </div>
               );
+            })}
+          </section>
+          <section className="team">
+            {infogames.map((item, index) => {
+              const { allPlayers } = item;
+              return <Team key={index} allPlayers={allPlayers} />;
             })}
           </section>
         </div>

@@ -19,6 +19,7 @@
     align-items: center;
     width: 100%;
     height: inherit;
+    overflow: hidden;
 
     background: linear-gradient(
       109deg,
@@ -35,6 +36,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    overflow: hidden;
   }
 
   .classification-container .classification-item {
