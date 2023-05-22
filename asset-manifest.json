@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/udr/static/css/main.5d7155d6.css",
-    "main.js": "/udr/static/js/main.8c16640c.js",
+    "main.css": "/udr/static/css/main.aec63156.css",
+    "main.js": "/udr/static/js/main.bd1092f4.js",
     "static/media/videoRaianos.mp4": "/udr/static/media/videoRaianos.0b9dac6905e44c07ec97.mp4",
     "static/media/UDRlogo.png": "/udr/static/media/UDRlogo.c4cfcc98f4cf501d8b47.png",
     "static/media/Intersect.png": "/udr/static/media/Intersect.e32f8dd89d100752f939.png",
     "static/media/loader.gif": "/udr/static/media/loader.77053ed752cb46e21170.gif",
+    "static/media/instagram.svg": "/udr/static/media/instagram.bf6a62a2133777b64ae44d7d21a5c09b.svg",
     "index.html": "/udr/index.html",
-    "main.5d7155d6.css.map": "/udr/static/css/main.5d7155d6.css.map",
-    "main.8c16640c.js.map": "/udr/static/js/main.8c16640c.js.map"
+    "static/media/facebook.svg": "/udr/static/media/facebook.28c88c1f5ec57c8b05613a7595e75b9e.svg",
+    "main.aec63156.css.map": "/udr/static/css/main.aec63156.css.map",
+    "main.bd1092f4.js.map": "/udr/static/js/main.bd1092f4.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d7155d6.css",
-    "static/js/main.8c16640c.js"
+    "static/css/main.aec63156.css",
+    "static/js/main.bd1092f4.js"
   ]
 }
