@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { client } from "./client";
+import { useLocation } from "react-router-dom";
+
 import Loader from "./components/loader/Loader";
 import Header from "./components/header/Header";
 import video from "./assets/videos/videoRaianos.mp4";
@@ -8,11 +10,25 @@ import PrevGame from "./components/prevgame/PrevGame";
 import Classification from "./components/classification/Classification";
 import Results from "./components/results/Results";
 import Team from "./components/team/Team";
+import Footer from "./components/footer/Footer";
 
 function App() {
+  const location = useLocation();
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [infogames, setInfogames] = useState([]);
+  const { scrollPosition } = location.state ?? {};
+  const [yPosition, setYPosition] = useState(null);
 
+  useEffect(() => {
+    if (scrollPosition) {
+      console.log(scrollPosition);
+      setYPosition(scrollPosition);
+      window.scrollTo(0, yPosition);
+      setYPosition(0);
+    }
+  }, [scrollPosition, yPosition]);
+
+  // const reArrangeData = (rawData) => {
   const reArrangeData = useCallback((rawData) => {
     const cleanData = rawData.map((data) => {
       const { classification, teamsLogos } = data.fields;
@@ -82,6 +98,7 @@ function App() {
         number: player.number,
         img: player.img,
         position: player.position,
+        details: player?.details,
       }));
 
       const forwardPlayers = classification.squad.forward.map((player) => ({
@@ -89,6 +106,7 @@ function App() {
         number: player.number,
         img: player.img,
         position: player.position,
+        details: player?.details,
       }));
       const goalkeeperPlayers = classification.squad.goalkeeper.map(
         (player) => ({
@@ -96,6 +114,7 @@ function App() {
           number: player.number,
           img: player.img,
           position: player.position,
+          details: player?.details,
         })
       );
       const midfielderPlayers = classification.squad.midfielder.map(
@@ -104,6 +123,7 @@ function App() {
           number: player.number,
           img: player.img,
           position: player.position,
+          details: player?.details,
         })
       );
 
@@ -175,16 +195,19 @@ function App() {
   }, []);
 
   const getNextGame = useCallback(async () => {
-    setIsPageLoading(true);
     try {
+      setIsPageLoading(true);
+
       const response = await client.getEntries({ content_type: "raianos" });
       const responseData = response.items;
+
       if (responseData) {
         reArrangeData(responseData);
         console.log(responseData);
       } else {
         setInfogames([]);
       }
+
       setIsPageLoading(false);
     } catch (error) {
       console.log(error);
@@ -194,9 +217,8 @@ function App() {
 
   useEffect(() => {
     getNextGame();
-  }, [getNextGame]);
-
-  console.log(infogames);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="App">
@@ -205,6 +227,7 @@ function App() {
       ) : (
         <div>
           <Header />
+
           <section className="landing">
             <div id="background-video">
               <video loop autoPlay muted playsInline>
@@ -280,6 +303,7 @@ function App() {
               return <Team key={index} allPlayers={allPlayers} />;
             })}
           </section>
+          <Footer />
         </div>
       )}
     </div>

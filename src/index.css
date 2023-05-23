@@ -5,6 +5,8 @@
 @import url("./components/results/results.css");
 @import url("./components/team/team.css");
 @import url("./components/classification/classification.css");
+@import url("./components/team/playerDetails.css");
+@import url("./components/footer/footer.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 :root {
