@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/udr/static/css/main.93ee8f2b.css",
-    "main.js": "/udr/static/js/main.f1e63f51.js",
+    "main.js": "/udr/static/js/main.2fecc247.js",
     "static/media/videoRaianos.mp4": "/udr/static/media/videoRaianos.0b9dac6905e44c07ec97.mp4",
     "static/media/UDRlogo.png": "/udr/static/media/UDRlogo.c4cfcc98f4cf501d8b47.png",
     "static/media/Intersect.png": "/udr/static/media/Intersect.e32f8dd89d100752f939.png",
@@ -10,10 +10,10 @@
     "index.html": "/udr/index.html",
     "static/media/facebook.svg": "/udr/static/media/facebook.28c88c1f5ec57c8b05613a7595e75b9e.svg",
     "main.93ee8f2b.css.map": "/udr/static/css/main.93ee8f2b.css.map",
-    "main.f1e63f51.js.map": "/udr/static/js/main.f1e63f51.js.map"
+    "main.2fecc247.js.map": "/udr/static/js/main.2fecc247.js.map"
   },
   "entrypoints": [
     "static/css/main.93ee8f2b.css",
-    "static/js/main.f1e63f51.js"
+    "static/js/main.2fecc247.js"
   ]
 }
